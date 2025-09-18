@@ -1,0 +1,116 @@
+-- Variables del juego
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Configuración de técnicas
+local cursedEnergy = 100
+local maxCursedEnergy = 100
+local energyRegenRate = 1
+
+local simpleDomainEnergyCost = 20
+local blackFlashEnergyCost = 50
+
+-- Función de regeneración de energía (simplificada)
+local function energyRegen()
+    while true do
+        wait(1)
+        if cursedEnergy < maxCursedEnergy then
+            cursedEnergy = math.min(cursedEnergy + energyRegenRate, maxCursedEnergy)
+            print("Energía: " .. cursedEnergy) -- Imprime la energía en la consola
+        end
+    end
+end
+
+-- Corrutina para regenerar energía
+coroutine.wrap(energyRegen)()
+
+-- Funciones de habilidades (simplificadas)
+local function simpleDomain()
+    if cursedEnergy >= simpleDomainEnergyCost then
+        cursedEnergy = cursedEnergy - simpleDomainEnergyCost
+        print("¡Dominio Simple activado!")
+    else
+        print("¡No tienes suficiente energía!")
+    end
+end
+
+local function blackFlash()
+    if cursedEnergy >= blackFlashEnergyCost then
+        cursedEnergy = cursedEnergy - blackFlashEnergyCost
+        print("¡Destello Negro!")
+    else
+        print("¡No tienes suficiente energía!")
+    end
+end
+
+-- Input de usuario (simplificado)
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.KeyCode == Enum.KeyCode.Q then
+        simpleDomain()
+    elseif input.KeyCode == Enum.KeyCode.E then
+        blackFlash()
+    end
+end)
+
+print("¡Script de Jujutsu Kaisen cargado!")
+-- Variables del juego
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Configuración de técnicas
+local cursedEnergy = 100
+local maxCursedEnergy = 100
+local energyRegenRate = 1
+
+local simpleDomainEnergyCost = 20
+local blackFlashEnergyCost = 50
+
+-- Función de regeneración de energía (simplificada)
+local function energyRegen()
+    while true do
+        wait(1)
+        if cursedEnergy < maxCursedEnergy then
+            cursedEnergy = math.min(cursedEnergy + energyRegenRate, maxCursedEnergy)
+            print("Energía: " .. cursedEnergy) -- Imprime la energía en la consola
+        end
+    end
+end
+
+-- Corrutina para regenerar energía
+coroutine.wrap(energyRegen)()
+
+-- Funciones de habilidades (simplificadas)
+local function simpleDomain()
+    if cursedEnergy >= simpleDomainEnergyCost then
+        cursedEnergy = cursedEnergy - simpleDomainEnergyCost
+        print("¡Dominio Simple activado!")
+    else
+        print("¡No tienes suficiente energía!")
+    end
+end
+
+local function blackFlash()
+    if cursedEnergy >= blackFlashEnergyCost then
+        cursedEnergy = cursedEnergy - blackFlashEnergyCost
+        print("¡Destello Negro!")
+    else
+        print("¡No tienes suficiente energía!")
+    end
+end
+
+-- Input de usuario (simplificado)
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.KeyCode == Enum.KeyCode.Q then
+        simpleDomain()
+    elseif input.KeyCode == Enum.KeyCode.E then
+        blackFlash()
+    end
+end)
+
+print("¡Script de Jujutsu Kaisen cargado!")
